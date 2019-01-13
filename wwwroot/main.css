@@ -1,0 +1,72 @@
+#divStories div, #divItems div div {
+    display: inline-block;
+    min-width: 200px;
+    height: 300px;
+    padding: 12px;
+    margin: 12px;
+    color: aliceblue;
+    text-shadow: 1px 1px 12px;
+    cursor: pointer;
+    font-size: 18px;
+    position:relative;
+}
+
+#divItems {
+    overflow: hidden;
+    width: 256px;
+    background: #ccc;
+}
+
+#divItems > div {
+    background: #ccc;
+    position: relative;
+    width: 1252px;
+    -webkit-animation: slide 16s cubic-bezier(0.6, -0.28, 0.74, 0.05) infinite;
+}
+
+@-webkit-keyframes slide {
+20% {margin-left: 0px;}
+40% {margin-left: -250px;}
+60% {margin-left: -500px;}
+80% {margin-left: -750px;}
+100% {margin-left: -1000px;}
+}  
+
+#divItems button{
+    position: absolute;
+    bottom: 12px;
+    left:25%;
+    cursor: pointer;
+    background: yellow;
+}
+
+div div:nth-child(1) {
+    background: url("1.jpg")
+}
+div div:nth-child(2) {
+    background: url("2.jpg")
+}
+div div:nth-child(3) {
+    background: url("3.jpg")
+}
+div div:nth-child(4) {
+    background: url("4.jpg")
+}
+div div:nth-child(5) {
+    background: url("5.jpg")
+}
+div div:nth-child(6) {
+    background: url("6.jpg")
+}
+div div:nth-child(7) {
+    background: url("7.jpg")
+}
+div div:nth-child(8) {
+    background: url("8.jpg")
+}
+div div:nth-child(9) {
+    background: url("9.jpg")
+}
+div div:nth-child(10) {
+    background: url("10.jpg")
+}

@@ -1,0 +1,14 @@
+D:\Projects\somelearn\bin\Debug\netcoreapp2.1\somelearn.deps.json
+D:\Projects\somelearn\bin\Debug\netcoreapp2.1\somelearn.runtimeconfig.json
+D:\Projects\somelearn\bin\Debug\netcoreapp2.1\somelearn.runtimeconfig.dev.json
+D:\Projects\somelearn\bin\Debug\netcoreapp2.1\somelearn.dll
+D:\Projects\somelearn\bin\Debug\netcoreapp2.1\somelearn.pdb
+D:\Projects\somelearn\obj\Debug\netcoreapp2.1\somelearn.csprojAssemblyReference.cache
+D:\Projects\somelearn\obj\Debug\netcoreapp2.1\somelearn.csproj.CoreCompileInputs.cache
+D:\Projects\somelearn\obj\Debug\netcoreapp2.1\somelearn.RazorAssemblyInfo.cache
+D:\Projects\somelearn\obj\Debug\netcoreapp2.1\somelearn.RazorAssemblyInfo.cs
+D:\Projects\somelearn\obj\Debug\netcoreapp2.1\somelearn.AssemblyInfoInputs.cache
+D:\Projects\somelearn\obj\Debug\netcoreapp2.1\somelearn.AssemblyInfo.cs
+D:\Projects\somelearn\obj\Debug\netcoreapp2.1\somelearn.RazorTargetAssemblyInfo.cache
+D:\Projects\somelearn\obj\Debug\netcoreapp2.1\somelearn.dll
+D:\Projects\somelearn\obj\Debug\netcoreapp2.1\somelearn.pdb

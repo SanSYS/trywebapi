@@ -1,0 +1,46 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<link href="main.css" rel="stylesheet" ></link>
+<center>
+    <h1>Stories</h1>
+    <div id="divStories"></div>
+
+    <h2>Story items</h2>
+    <h3>&nbsp;</h3>
+    <div id="divItems"><div></div></div>
+</center>
+
+<script type="text/javascript">
+var divStories = $('#divStories');
+var divItems = $('#divItems>div');
+
+$.getJSON("/api/stories/all", function(stories){
+    var html = '';
+
+    for (var i = 0; 
+         element = stories[i]; 
+         i++) {
+        html += '<div>' + element.id + ' ' + element.title + '</div>';
+    }
+
+    divStories.html(html);
+});
+
+divStories.click('div', function(e, d){
+    var text = $(e.target).text(),
+        storyId = Number.parseInt(text),
+        html = '';
+
+    $('h3').text(text);
+    
+    $.getJSON("/api/stories/items/" + storyId, function(items){
+        for (var i = 0; 
+            element = items[i]; 
+            i++) {
+            html += '<div>' + element.text + '<button>Ссылка на сайт</button></div>';
+        }
+
+        divItems.html(html);
+    });
+});
+</script>

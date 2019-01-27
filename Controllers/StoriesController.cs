@@ -9,38 +9,53 @@ public class StoriesController: ControllerBase
 {
     [HttpGet("all")]
     public List<Story> GetAll() {
-        return new Repository().stories.ToList();
+        return new StoriesRepository().stories.ToList();
     }
 
     [HttpGet("items/{id}")]
     public List<StoryItem> GetItems(int id){
-        return new Repository()
+        return new StoriesRepository()
                 .storyitems
                 .Where(p => p.storyid == id)
                 .ToList();
     }
 
-    public class Story
-    {
-        public int id { get; set; }
-
-        public string title { get; set; }
-    }
-
-    public class StoryItem
-    {
-        public int id { get; set; }
-
-        public string text { get; set; }
+    [HttpPost("add")]
+    public IActionResult Add(string title){
+        var rep = new StoriesRepository();
         
-        public int storyid { get; set; }
+        // достать последний ид из бд
+        int lastId = rep.stories.Max(p => p.id);
+
+        // добавить новую историю
+        rep.stories.Add(new Story{
+            id = lastId + 1,
+            title = title
+        });
+
+        // сохранить изменения в БД
+        rep.SaveChanges();
+
+        return Redirect("/add.html");
     }
 
-    class Repository: DbContext{
-        public DbSet<Story> stories { get; set; }
-        public DbSet<StoryItem> storyitems {get; set; }
+    [HttpPost("items/add")]
+    public IActionResult AddItem(int storyId, string text){
+        var rep = new StoriesRepository();
+        
+        // достать последний ид из бд
+        int lastId = rep.storyitems.Max(p => p.id);
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => 
-            optionsBuilder.UseNpgsql("Host=172.21.13.70;Database=storiesdb;Username=postgres;Password=1");
+        // добавить новый элемент в историю
+        rep.storyitems.Add(new StoryItem{
+            id = lastId + 1,
+            text = text,
+            storyid = storyId
+        });
+
+        // сохранить изменения в БД
+        rep.SaveChanges();
+
+        return Redirect("/add.html");
     }
 }

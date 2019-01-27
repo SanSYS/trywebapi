@@ -1,0 +1,40 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<form action="/api/stories/add" method="POST">
+    <b>Добавление новой истории</b> <br>
+    <label>Название: <input name="title" autofocus /></label>
+    <input type="submit" value="Добавить">
+</form>
+
+<ul id="storiesList"></ul>
+
+<script>
+    var storiesList = $('#storiesList');
+    var selectedStoryId = -1;
+
+    $.getJSON("/api/stories/all", function(stories){
+        var html = '';
+
+        for (var i = 0; 
+            element = stories[i]; 
+            i++) {
+            html += '<li id='+element.id+'>' + element.id + ' ' + element.title + '</li>';
+        }
+
+        storiesList.html(html);
+    });
+
+    storiesList.click('li', function(e){
+        var selectedStory = $(e.target);
+        var storyId = selectedStory.attr('id');
+        
+        $('#sname').text(selectedStory.text());
+    });
+</script>
+
+<form action="/api/stories/items/add" method="POST">
+    <b>Добавление элемента в историю <i id=sname></i></b> <br>
+    <label>Текст: <input name="text" autofocus /></label>
+    <input type="submit" value="Добавить">
+</form>

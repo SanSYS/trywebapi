@@ -30,11 +30,13 @@
         var storyId = selectedStory.attr('id');
         
         $('#sname').text(selectedStory.text());
+        $('#addItem').attr("action", "/api/stories/items/" + storyId + "/add");
     });
 </script>
 
-<form action="/api/stories/items/add" method="POST">
+<form action="/api/stories/items/add" method="POST" id="addItem">
     <b>Добавление элемента в историю <i id=sname></i></b> <br>
     <label>Текст: <input name="text" autofocus /></label>
+    <!-- <input type="hidden" name="storyId" id="storyId"> -->
     <input type="submit" value="Добавить">
 </form>

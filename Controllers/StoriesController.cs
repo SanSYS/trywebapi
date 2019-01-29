@@ -39,7 +39,7 @@ public class StoriesController: ControllerBase
         return Redirect("/add.html");
     }
 
-    [HttpPost("items/add")]
+    [HttpPost("items/{storyId}/add")]
     public IActionResult AddItem(int storyId, string text){
         var rep = new StoriesRepository();
         
